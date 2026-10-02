@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1> Products Page Veiw</h1>
+
+<ul>
+{% for product in products %}
+    <li>    
+    <p>{{ product.name }} - ${{ product.price }}</p>
+    </li>
+{% endfor %}
+
+</ul>
+{% endblock %}
