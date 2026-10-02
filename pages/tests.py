@@ -53,19 +53,14 @@ class ProductsPageTests(TestCase):
     def test_products_context_contains_products(self):
         url = reverse("products")
         response = self.client.get(url)
-
-        # Ensure "products" exists in context
         self.assertIn("products", response.context)
 
         products = response.context["products"]
 
-        # Ensure it's a list
         self.assertIsInstance(products, list)
 
-        # Ensure there are exactly 4 products
         self.assertEqual(len(products), 4)
 
-        # Optional: check structure of each product
         for product in products:
             self.assertIn("name", product)
             self.assertIn("price", product)
